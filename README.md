@@ -1,0 +1,2 @@
+# OLC
+Ollama + LangChain + Chroma
