@@ -62,21 +62,25 @@ ollama run llama3                                  # 試し起動 (Ctrl+C で終
 
 ```bash
 sudo apt update && sudo apt install -y python3-venv build-essential
-python3 -m venv rag-env && source rag-env/bin/activate
+python3.10 -m venv rag-env && source rag-env/bin/activate
 
 # requirements
 pip install --upgrade \
     langchain-core langchain-community langchain-text-splitters \
-    chromadb sentence-transformers ollama   # ← ollama-python ではなく `ollama`
+    chromadb sentence-transformers ollama \
+    fastapi \
+    'uvicorn[standard]'
 ```
 
-| ライブラリ                   | 役割                                   |
-| ---------------------------- | -------------------------------------- |
-| **langchain‑core/community** | RAG パイプライン実装                   |
-| **langchain‑text‑splitters** | DDL をテーブル単位に分割               |
-| **chromadb**                 | ベクトル DB (ローカル)                 |
-| **sentence‑transformers**    | 小型埋め込みモデル呼び出し             |
-| **ollama**                   | Python からローカル LLM を呼ぶラッパー |
+| ライブラリ                   | 役割                                              |
+| ---------------------------- | ------------------------------------------------- |
+| **langchain‑core/community** | RAG パイプライン実装                              |
+| **langchain‑text‑splitters** | DDL をテーブル単位に分割                          |
+| **chromadb**                 | ベクトル DB (ローカル)                            |
+| **sentence‑transformers**    | 小型埋め込みモデル呼び出し                        |
+| **ollama**                   | Python からローカル LLM を呼ぶラッパー            |
+| **fastapi**                  | Python で API を開発するための Web フレームワーク |
+| **uvicorn[standard]**        | FastAPI 起動用                                    |
 
 ---
 
