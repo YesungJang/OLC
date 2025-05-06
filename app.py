@@ -1,3 +1,6 @@
+import importlib, sys
+import pysqlite3                   # ← pysqlite3-binary 0.5.2
+sys.modules["sqlite3"] = importlib.import_module("pysqlite3")
 from fastapi import FastAPI
 from pydantic import BaseModel
 from langchain_community.embeddings import OllamaEmbeddings
@@ -34,12 +37,16 @@ PROMPT = PromptTemplate(
 class Query(BaseModel):
     question: str
 
-def retrieve_ctx(q: str, k=4):
+def retrieve_ctx(q: str, k: int = 4) -> str:
     qv = emb.embed_query(q)
-    ids, docs, _ = chroma.query(
-        query_embeddings=[qv], n_results=k, include=["documents"]
+    res = chroma.query(
+        query_embeddings=[qv],
+        n_results=k,
+        include=["documents"]
     )
-    return "\n".join(docs[0])
+    # res は {'ids': [[...]], 'documents': [[...]], 'distances': [[...]]}
+    docs = res["documents"][0]
+    return "\n".join(docs)
 
 @app.post("/query")
 def query(q: Query):
