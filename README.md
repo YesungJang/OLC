@@ -166,4 +166,30 @@ tmux new -s rag "uvicorn app:app --host 0.0.0.0 --port 8000 --workers 2"
 
 ---
 
+## 8. Chat-style ブラウザ UI (ポート 8080)
+
+### 概要
+
+- **目的** — バックエンド `/query` エンドポイント（8000 番）を手軽に試せる “ChatGPT 風” の入力フォーム。
+- **構成** — 依存ゼロの静的 HTML/CSS/JS。ビルド不要でそのまま配信。
+- **特徴** —
+  - 入力 → バックエンドへ POST → 生成された **MySQL 8.0 SQL** をコードブロック表示
+  - 画面はシンプルな吹き出し UI（履歴はブラウザのみで完結）
+
+### 起動方法
+
+1. **バックエンドを起動** が起動されている状態
+
+```wsl
+uvicorn app:app --host 0.0.0.0 --port 8000 --workers 1
+```
+
+2. フロントを配信 (8080)
+
+```
+cd frontend && python3 -m http.server 8080
+```
+
+---
+
 > © 2025 – Internal use only. Powered by Ollama, LangChain, Chroma, FastAPI.
