@@ -20,7 +20,8 @@ form.addEventListener("submit", async (e) => {
 
     if (!res.ok) throw new Error(res.statusText);
     const data = await res.json();
-    addBubble("```sql\n" + data.sql + "\n```", "assist", true);
+    const formatted = sqlFormatter.format(data.sql, { language: "mysql" });
+    addBubble("```sql\n" + formatted + "\n```", "assist", true);
   } catch (err) {
     addBubble("⚠️ エラー: " + err.message, "assist");
   } finally {
