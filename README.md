@@ -69,18 +69,20 @@ pip install --upgrade \
     langchain-core langchain-community langchain-text-splitters \
     chromadb sentence-transformers ollama \
     fastapi \
-    'uvicorn[standard]'
+    'uvicorn[standard]' \
+    watchfiles~=0.24
 ```
 
-| ライブラリ                   | 役割                                              |
-| ---------------------------- | ------------------------------------------------- |
-| **langchain‑core/community** | RAG パイプライン実装                              |
-| **langchain‑text‑splitters** | DDL をテーブル単位に分割                          |
-| **chromadb**                 | ベクトル DB (ローカル)                            |
-| **sentence‑transformers**    | 小型埋め込みモデル呼び出し                        |
-| **ollama**                   | Python からローカル LLM を呼ぶラッパー            |
-| **fastapi**                  | Python で API を開発するための Web フレームワーク |
-| **uvicorn[standard]**        | FastAPI 起動用                                    |
+| ライブラリ                   | 役割                                                                                                      |
+| ---------------------------- | --------------------------------------------------------------------------------------------------------- |
+| **langchain‑core/community** | RAG パイプライン実装                                                                                      |
+| **langchain‑text‑splitters** | DDL をテーブル単位に分割                                                                                  |
+| **chromadb**                 | ベクトル DB (ローカル)                                                                                    |
+| **sentence‑transformers**    | 小型埋め込みモデル呼び出し                                                                                |
+| **ollama**                   | Python からローカル LLM を呼ぶラッパー                                                                    |
+| **fastapi**                  | Python で API を開発するための Web フレームワーク                                                         |
+| **uvicorn[standard]**        | FastAPI 起動用                                                                                            |
+| **watchfiles**               | ァイルやディレクトリの変更を監視し、変更があった場合に処理を実行するための Python ライブラリ(Rust で実装) |
 
 ---
 
