@@ -61,7 +61,7 @@ ollama run llama3                                  # 試し起動 (Ctrl+C で終
 ## 4. Python 仮想環境 & 依存ライブラリ
 
 ```bash
-sudo apt update && sudo apt install -y python3-venv build-essential
+sudo apt update && sudo apt install -y python3-venv build-essential jq
 python3.10 -m venv rag-env && source rag-env/bin/activate
 
 # requirements
