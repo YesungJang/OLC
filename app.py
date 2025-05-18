@@ -113,9 +113,4 @@ def query(q: Query):
     sql_plain = strip_md_fence(raw)
     sql_fmt   = sqlparse.format(sql_plain, strip_comments=True).strip()
 
-    first_token = re.sub(r"^[\s:>\-]+", "", sql_fmt.lstrip()).split()[0].lower()
-    
-    # if first_token not in {"select", "insert", "update", "delete", "with", "create", "alter"}:
-    #     raise HTTPException(status_code=422, detail="LLM did not return valid SQL")
-
     return {"sql": sql_fmt, "ddl_context": ctx}
