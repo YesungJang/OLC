@@ -192,6 +192,20 @@ uvicorn app:app --host 0.0.0.0 --port 8000 --workers 1
 cd frontend && python3 -m http.server 8080
 ```
 
+## 9. Source Layout
+
+```
+rag/              # Application modules
+  __init__.py     # sqlite3 patch and app factory export
+  server.py       # FastAPI app factory
+  context.py      # DDL retrieval logic
+  prompt.py       # System prompt loader and watcher
+  ddl_indexer.py  # Utility to index DDL into Chroma
+  utils.py        # Helper functions
+app.py            # Legacy entrypoint (imports from rag)
+index.ddl.py      # Legacy DDL indexing script
+```
+
 ---
 
 > © 2025 – Internal use only. Powered by Ollama, LangChain, Chroma, FastAPI.

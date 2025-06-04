@@ -1,2 +1,3 @@
-/rag-env/*
-/__pycache__/*
+/rag-env/
+/__pycache__/
+/rag/__pycache__/
