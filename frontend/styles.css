@@ -29,6 +29,13 @@ main {
   padding: 0.6rem 0.8rem;
   border-radius: 0.7rem;
   line-height: 1.45;
+  word-wrap: break-word;
+  overflow-wrap: anywhere;
+}
+
+.bubble pre {
+  margin: 0;
+  white-space: pre-wrap;
 }
 .user {
   align-self: flex-end;
